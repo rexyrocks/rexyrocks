@@ -51,7 +51,7 @@ B.Tech IT student at Manipal University Jaipur, graduating 2028, building toward
   <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/rexyrocks/rexyrocks/output/pacman-contribution-graph.svg">
 </picture>
 
-*(This animates once you've set up the Pac-Man GitHub Action — see setup notes below.)*
+
 
 ## Quick Links
 
