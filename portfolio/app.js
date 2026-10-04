@@ -3,6 +3,9 @@ const ids = Object.keys(projects);
 const categories = {risk:'Machine learning',pyro:'Climate × ML',miku:'Desktop app',notes:'Full stack'};
 const aliases = {risk:'risk',risksight:'risk',pyro:'pyro',pyrograph:'pyro',miku:'miku',electron:'miku',fieldnotes:'notes',notes:'notes'};
 const speechAvailable = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+const narrationAudio = new Audio();
+narrationAudio.preload = 'metadata';
+let audioProject = null;
 let current = 'risk', priorFocus, section = 0, playing = false, speechToken = 0;
 let filter = '', query = '', savedOnly = false, favorites = new Set(), historyIndex = 0;
 const commands = [];
@@ -12,7 +15,7 @@ const scrollTo = el => el.scrollIntoView({behavior:matchMedia('(prefers-reduced-
 function notify(text) { $('notice').textContent = text; }
 function parts() { const p=projects[current]; return [p.description,p.problem,p.approach,p.outcome]; }
 const chapterNames = ['Overview','The problem','The approach','The result'];
-function stopNarration() { speechToken++; if(speechAvailable) speechSynthesis.cancel(); playing=false; updatePlayer(); }
+function stopNarration() { speechToken++; if(speechAvailable) speechSynthesis.cancel(); narrationAudio.pause(); playing=false; updatePlayer(); }
 function updatePlayer() {
   $('tour-play').textContent=playing?'Ⅱ Pause':'▶ Listen';
   $('tour-play').setAttribute('aria-label',playing?'Pause project narration':'Listen to project narration');
@@ -24,14 +27,16 @@ function updatePlayer() {
   document.querySelectorAll('.story-card').forEach((el,i)=>el.classList.toggle('narrating',playing&&section===i+1));
 }
 function narrate() {
-  if(!speechAvailable) { notify('Narration is unavailable in this browser. Read the project story below.'); scrollTo($('project-detail')); return; }
-  stopNarration(); playing=true; const token=speechToken;
-  const utterance=new SpeechSynthesisUtterance(parts()[section]);
-  utterance.lang='en-US'; utterance.rate=1;
-  utterance.onend=()=>{if(token!==speechToken)return;if(section<3){section++;narrate();}else{playing=false;section=0;updatePlayer();notify('Project narration complete. Explore another track.');}};
-  utterance.onerror=e=>{if(token!==speechToken)return;playing=false;updatePlayer();if(e.error!=='canceled'&&e.error!=='interrupted')notify('Your browser could not play narration. The full transcript is in the project story.');};
-  speechSynthesis.speak(utterance); updatePlayer();
+  stopNarration();
+  const source='/audio/'+current+'.wav';
+  if(audioProject!==current){narrationAudio.src=source;audioProject=current;}
+  const duration=narrationAudio.duration||0;
+  if(duration&&section>0)narrationAudio.currentTime=duration*(section/4);
+  narrationAudio.play().then(()=>{playing=true;updatePlayer();}).catch(()=>{notify('Audio could not start. Click Listen again to allow playback.');});
 }
+narrationAudio.addEventListener('pause',()=>{if(!narrationAudio.ended){playing=false;updatePlayer();}});
+narrationAudio.addEventListener('ended',()=>{playing=false;section=0;updatePlayer();notify('Project narration complete. Explore another track.');});
+narrationAudio.addEventListener('timeupdate',()=>{if(narrationAudio.duration){const next=Math.min(3,Math.floor(narrationAudio.currentTime/narrationAudio.duration*4));if(next!==section){section=next;updatePlayer();}}});
 function filterTracks() {
   let count=0;
   document.querySelectorAll('.track').forEach(el=>{const id=el.dataset.project,p=projects[id];const match=(!filter||p.tags.includes(filter))&&(!savedOnly||favorites.has(id))&&[p.short,p.description,categories[id],...p.tags].join(' ').toLowerCase().includes(query.toLowerCase());el.hidden=!match;if(match)count++;});
@@ -66,9 +71,9 @@ document.querySelectorAll('.track').forEach(el=>{
   const id=el.dataset.project;
   const play=el.querySelector('.track-play');
   play.textContent='▶';
-  play.setAttribute('aria-label','Play '+projects[id].short+' story');
+  play.setAttribute('aria-label','Open '+projects[id].short+' project');
   play.setAttribute('role','button');
-  play.addEventListener('click',event=>{event.stopPropagation();selectProject(id,{listen:true});});
+  play.addEventListener('click',event=>{event.stopPropagation();window.open(projects[id].demo||projects[id].code,'_blank','noopener,noreferrer');});
   el.addEventListener('click',()=>selectProject(id));
 });
 document.querySelectorAll('[data-nav]').forEach(el=>el.addEventListener('click',()=>{if(el.dataset.nav==='all')allProjects();else{selectProject(el.dataset.nav);scrollTo($('project-detail'));}}));
@@ -118,4 +123,4 @@ $('terminal-form').addEventListener('submit',e=>{e.preventDefault();const raw=in
   else line('Command not found. Type help.');
 });
 const requested=new URLSearchParams(location.search).get('project');selectProject(projects[requested]?requested:'risk',{url:false});filterTracks();
-if(!speechAvailable){$('tour-play').disabled=true;document.querySelectorAll('.chapter-listen').forEach(el=>el.disabled=true);notify('Narration is unavailable in this browser; all project stories are readable below.');}
+document.querySelectorAll('.chapter-listen').forEach(el=>el.disabled=false);
