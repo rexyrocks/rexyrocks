@@ -3,7 +3,8 @@
 <p align="center">
   <a href="https://project-radio-tau.vercel.app"><strong>▶ Open portfolio</strong></a> &nbsp; / &nbsp;
   <a href="#selected-work">Selected work</a> &nbsp; / &nbsp;
-  <a href="#behind-the-builds">About me</a>
+  <a href="#behind-the-builds">About me</a> &nbsp; / &nbsp;
+  <a href="https://www.linkedin.com/in/kunal-choudhary-664a373b8/">LinkedIn ↗</a>
 </p>
 
 ## Selected work
@@ -21,6 +22,12 @@ Four projects. Four different problems. One habit: learn by building.
 </p>
 
 <p align="center"><a href="https://project-radio-tau.vercel.app"><strong>Hear the story behind each project →</strong></a></p>
+
+## Take a play break
+
+<a href="https://project-radio-tau.vercel.app/arcade.html"><img src="assets/arcade.svg" width="100%" alt="Play Catch the Commits: a 30-second arcade game. Catch green commits, dodge bugs. Opens in your browser." /></a>
+
+**[Play Catch the Commits →](https://project-radio-tau.vercel.app/arcade.html)** · Arrow keys or A / D · Touch controls · Personal best saved on your device
 
 ## Behind the builds
 
