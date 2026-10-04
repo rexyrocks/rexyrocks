@@ -1,51 +1,61 @@
-<h1 align="center">Hi, I'm Kunal 👋</h1>
-<p align="center">Machine learning · Software projects · Scientific computing</p>
+<a href="https://project-radio-tau.vercel.app"><img src="assets/banner.svg" width="100%" alt="Kunal Choudhary — models from scratch, ideas into software. Explore Project Radio." /></a>
 
 <p align="center">
-  <a href="https://project-radio-tau.vercel.app"><strong>▶ Explore Project Radio — my interactive portfolio</strong></a>
+  <a href="https://project-radio-tau.vercel.app"><strong>▶ Open portfolio</strong></a> &nbsp; / &nbsp;
+  <a href="#selected-work">Selected work</a> &nbsp; / &nbsp;
+  <a href="#behind-the-builds">About me</a>
 </p>
 
-A playlist of four projects, with the problem, approach, and story behind each one. Pick a track, explore the code, or open the terminal and type `help`.
+## Selected work
 
-## About Me
+Four projects. Four different problems. One habit: learn by building.
 
-I'm a B.Tech IT student at Manipal University Jaipur, graduating in 2028. I build machine learning models from the fundamentals, turn experiments into practical applications, and care about interfaces that make the results easier to explore.
+<p align="center">
+  <a href="https://github.com/rexyrocks/credit-risk-from-scratch"><img src="assets/risksight.svg" width="49%" alt="RiskSight: Credit risk, built from first principles. NumPy · Logistic regression · FastAPI. View repository." /></a>
+  <a href="https://github.com/rexyrocks/pyrograph"><img src="assets/pyrograph.svg" width="49%" alt="Pyrograph: Turning weather data into early warnings. Python · XGBoost · Time series. View repository." /></a>
+</p>
 
-- **Exploring:** machine learning, scientific computing, and the systems around them.
-- **Practicing:** data structures and algorithms in Java with Striver's A2Z Sheet.
-- **Building toward:** Google Summer of Code 2027 and an MS in Germany.
-- **Ask me about:** Python, Java, JavaScript, and Linux.
+<p align="center">
+  <a href="https://github.com/rexyrocks/Electron"><img src="assets/miku.svg" width="49%" alt="Miku Companion: A little character. A lot of engineering. Electron · JavaScript · Live2D. View repository." /></a>
+  <a href="https://github.com/rexyrocks/the-log"><img src="assets/fieldnotes.svg" width="49%" alt="Fieldnotes: A shared home for findings and decisions. React · Express · SQLite. View repository." /></a>
+</p>
 
-## Featured Projects
+<p align="center"><a href="https://project-radio-tau.vercel.app"><strong>Hear the story behind each project →</strong></a></p>
 
-| Project | What I built | Stack |
-| --- | --- | --- |
-| [RiskSight](https://github.com/rexyrocks/credit-risk-from-scratch) | Credit-risk modeling from scratch: logistic regression, gradient descent, regularization, class weighting, and threshold analysis. | Python · NumPy · FastAPI |
-| [Pyrograph](https://github.com/rexyrocks/pyrograph) | A Jaipur heatwave early-warning pipeline with climatology labels, time-series features, and a five-day outlook. | Python · XGBoost · FastAPI |
-| [Miku Desktop Companion](https://github.com/rexyrocks/Electron) | An interactive macOS companion with a Live2D character, local memory, optional voice chat, and opt-in observation. | Electron · JavaScript · Live2D |
-| [Fieldnotes](https://github.com/rexyrocks/the-log) | A shared research log for findings, phases, and team responsibilities. | React · Express · SQLite |
+## Behind the builds
 
-[Explore the project stories →](https://project-radio-tau.vercel.app)
+I'm **Kunal**, an IT student at **Manipal University Jaipur · Class of 2028**. I like understanding how models work, turning experiments into usable software, and designing interfaces that make complex ideas easier to explore.
 
-### More work
+| On my desk | On the horizon |
+| :--- | :--- |
+| Machine learning & scientific computing | Google Summer of Code 2027 |
+| Data structures & algorithms in Java | An MS in Germany |
+| Practical apps and thoughtful interfaces | More learning through open source |
 
-- [MU FindIt](https://github.com/rexyrocks/lost-and-found) — A lost-and-found platform for Manipal University students and staff.
-- [Striver DSA in Java](https://github.com/rexyrocks/striver-dsa-java) — My data structures and algorithms practice.
+### My toolkit
 
-## Tech Stack
+**Languages** &nbsp; Python · Java · JavaScript · C  
+**Models & data** &nbsp; NumPy · scikit-learn · XGBoost · SQLite  
+**Applications** &nbsp; FastAPI · React · Express · Electron  
+**Everyday tools** &nbsp; Git · Linux · Bash
 
-![Java](https://img.shields.io/badge/-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![C](https://img.shields.io/badge/-C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)
-![Flask](https://img.shields.io/badge/-Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Bash](https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![Linux](https://img.shields.io/badge/-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Git](https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+### Also in the collection
 
-## Contribution Graph
+[**MU FindIt**](https://github.com/rexyrocks/lost-and-found) — Lost-and-found for the Manipal community.  
+[**Striver DSA in Java**](https://github.com/rexyrocks/striver-dsa-java) — Building problem-solving fundamentals, one pattern at a time.
+
+<details>
+<summary><strong>⌁ Contribution arcade</strong></summary>
+<br />
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rexyrocks/rexyrocks/output/pacman-contribution-graph-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rexyrocks/rexyrocks/output/pacman-contribution-graph.svg">
   <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/rexyrocks/rexyrocks/output/pacman-contribution-graph.svg">
 </picture>
+
+</details>
+
+---
+
+<p align="center"><sub>Made with curiosity. Best explored with the <a href="https://project-radio-tau.vercel.app">radio on ↗</a></sub></p>
