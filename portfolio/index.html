@@ -60,8 +60,8 @@
   </style>
   <style>
     .track-play{pointer-events:auto}
-    .player{grid-template-columns:1fr auto;min-height:70px}
   </style>
+  <link rel="stylesheet" href="/interactive.css">
   </head>
 <body>
   <div class="app">
@@ -84,9 +84,11 @@
       <p id="notice" role="status" aria-live="polite"></p><div id="share-fallback" hidden><label for="share-url">Project link</label><input id="share-url" readonly></div>
       <section class="detail" id="project-detail" aria-live="polite"></section>
       <div class="story-grid" id="story-grid" aria-label="Project notes"></div>
+      <section class="experience" id="experience" aria-label="Try the selected project"></section>
+      <section class="transcript" id="transcript" aria-label="Narration transcript" hidden></section>
       <section class="about" id="about"><div><div class="eyebrow">Behind the playlist</div><h2>About Kunal</h2><p>I’m an IT student at Manipal University Jaipur, interested in machine learning and the systems around it. My work moves between model building, practical applications, and interfaces that make the results easier to explore. Right now I’m building toward scientific ML and Google Summer of Code 2027.</p></div><div class="about-list"><div class="about-item"><span>Connect</span><a href="https://www.linkedin.com/in/kunal-choudhary-664a373b8/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div><div class="about-item"><span>Working with</span><span>Python · Java · JavaScript</span></div><div class="about-item"><span>Interested in</span><span>ML · scientific computing</span></div><div class="about-item"><span>Find more</span><a href="https://github.com/rexyrocks" target="_blank" rel="noopener noreferrer">github.com/rexyrocks ↗</a></div></div></section>
     </main>
-    <footer class="player" aria-label="Project audio tour"><button class="player-track" id="player-track-button" aria-label="Read selected project story"><span class="cover cover-risk" id="player-cover">RS</span><span class="player-info"><span class="player-title" id="player-title">RiskSight</span><span class="player-artist" id="player-status">Project 01 / 04</span></span></button><div class="tour-controls"><button id="previous-project" aria-label="Previous project">←</button><button id="tour-play" aria-pressed="false" aria-label="Listen to project narration">▶ Listen</button><button id="next-project" aria-label="Next project">→</button></div><div class="chapter-control"><label for="chapter" id="chapter-label">Overview · 1/4</label><input type="range" id="chapter" min="0" max="3" step="1" value="0" aria-label="Narration chapter"></div></footer>
+    <footer class="player" aria-label="Project audio tour"><button class="player-track" id="player-track-button" aria-label="Read selected project story"><span class="cover cover-risk" id="player-cover">RS</span><span class="player-info"><span class="player-title" id="player-title">RiskSight</span><span class="player-artist" id="player-status">Project 01 / 04</span></span></button><div class="tour-controls"><button id="previous-project" aria-label="Previous project">←</button><button id="tour-play" aria-pressed="false" aria-label="Listen to project narration">▶ Listen</button><button id="next-project" aria-label="Next project">→</button></div><div class="seek-control"><label for="seek">Narration progress</label><div class="wave-wrap"><span id="audio-current">0:00</span><div class="wave-shell"><div id="waveform" class="waveform" aria-hidden="true"></div><input type="range" id="seek" min="0" max="100" step="0.1" value="0" aria-label="Seek narration"></div><span id="audio-duration">0:00</span></div></div><div class="player-extra"><button id="transcript-toggle" aria-expanded="false" aria-controls="transcript">Read along</button><label for="volume">Volume <input type="range" id="volume" min="0" max="1" step="0.05" value="1"></label><div class="chapter-control"><label for="chapter" id="chapter-label">Overview · 1/4</label><input type="range" id="chapter" min="0" max="3" step="1" value="0" aria-label="Narration chapter"></div></div></footer>
   </div>
   <div class="terminal-backdrop" id="terminal-backdrop"><section class="terminal" id="terminal-dialog" role="dialog" aria-modal="true" aria-label="Project terminal"><div class="terminal-bar"><span>kunal@project-radio ~</span><button class="terminal-close" id="terminal-close" aria-label="Close terminal">×</button></div><div class="terminal-body" id="terminal-output" aria-live="polite"><div class="terminal-line">Welcome to Project Radio Terminal.</div><div class="terminal-line">Type <span style="color:#c5fa5f">help</span> to see available commands.</div></div><form class="terminal-input-row" id="terminal-form"><label for="terminal-input">❯</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command"></form></section></div>
   <script>
@@ -97,6 +99,7 @@
       notes:{number:"04",short:"Fieldnotes",title:"Fieldnotes — Shared Research Log",description:"A place for the heatwave team to capture findings, phases, and responsibilities as the prototype evolves.",problem:"Research decisions and implementation notes are easy to lose when they live across chats and personal files.",approach:"I built a React frontend with an Express and SQLite API for findings and roles, organized around the project's research phases.",outcome:"The repository includes working routes for reading and adding findings and a deployment path with persistent database storage.",tags:["React","Express","SQLite","Research workflow"],code:"https://github.com/rexyrocks/the-log",cover:"FN",coverClass:"cover-notes"}
     };
   </script>
+  <script src="/experiences.js" defer></script>
   <script src="/app.js" defer></script>
 </body>
 </html>
